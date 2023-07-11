@@ -11,5 +11,5 @@ class Mail():
         newmail=self.ol.CreateItem(0)
         newmail.Subject= 'Raw materials key access'
         newmail.To= receiver 
-        newmail.Body= 'Hello, this is your personnal key for RFID Raw Materials mobile app : '+ body
+        newmail.Body= 'Hello, this is your personal key for RFID Raw Materials mobile app : '+ body
         newmail.Display(True)

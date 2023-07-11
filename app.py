@@ -1,6 +1,6 @@
 import sys
 
-from PyQt5.QtWidgets import (QApplication,QMainWindow,QWidget,QTextEdit,QPushButton,QDialog,QDateEdit, QTimeEdit)
+from PyQt5.QtWidgets import (QApplication,QMainWindow)
 
 from PyQt5.QtCore import QDateTime
 
@@ -57,7 +57,8 @@ class UIKeyGenerator(QMainWindow):
         newKey = self.ui.plainTextKey.toPlainText()
         mail = Mail()
         mail.sendMail(mailer, newKey)
-        
+        self.ui.sendKeyButton.setText="Finish"
+        self.ui.sendKeyButton.clicked.connect(self.close())
     
     def errorDialogEmptyFields(self):
         dlg = CustomDialog()
