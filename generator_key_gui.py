@@ -22,11 +22,8 @@ class Ui_Form(object):
         self.textEditDeviceId.setGeometry(QtCore.QRect(140, 80, 271, 31))
         self.textEditDeviceId.setObjectName("textEditDeviceId")
         self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setGeometry(QtCore.QRect(70, 160, 47, 13))
+        self.label_2.setGeometry(QtCore.QRect(70, 130, 47, 13))
         self.label_2.setObjectName("label_2")
-        self.textEditKeyDuration = QtWidgets.QTextEdit(Form)
-        self.textEditKeyDuration.setGeometry(QtCore.QRect(140, 150, 271, 31))
-        self.textEditKeyDuration.setObjectName("textEditKeyDuration")
         self.plainTextKey = QtWidgets.QPlainTextEdit(Form)
         self.plainTextKey.setGeometry(QtCore.QRect(140, 220, 431, 151))
         self.plainTextKey.setObjectName("plainTextKey")
@@ -45,13 +42,16 @@ class Ui_Form(object):
         self.label_3 = QtWidgets.QLabel(Form)
         self.label_3.setGeometry(QtCore.QRect(70, 30, 61, 21))
         self.label_3.setObjectName("label_3")
+        self.dateTimeEdit = QtWidgets.QDateTimeEdit(Form)
+        self.dateTimeEdit.setGeometry(QtCore.QRect(140, 130, 271, 31))
+        self.dateTimeEdit.setObjectName("dateTimeEdit")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Generator Key"))
         self.label.setText(_translate("Form", "Id Device:"))
         self.label_2.setText(_translate("Form", "Duration:"))
         self.cleanButton.setText(_translate("Form", "Clean"))
