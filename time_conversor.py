@@ -6,10 +6,15 @@ class TimeConversor():
          pass
 
     def getTimeStamp(dateTimeValue):
-         
-         format_date = datetime.strptime(str(dateTimeValue)[:-7], '%Y-%m-%d %H:%M:%S').timetuple()
-         tt = time.mktime(format_date)
-         print(str(tt))
+         current = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+         new = str(dateTimeValue)[0:10]
+         current= str(current)[0:10]
+         if new > current:
+             format_date = datetime.strptime(str(dateTimeValue)[:-7], '%Y-%m-%d %H:%M:%S').timetuple()
+             return time.mktime(format_date)
+         else:
+              return float(0)
+        
          
          
          

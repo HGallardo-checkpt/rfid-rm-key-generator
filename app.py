@@ -34,14 +34,21 @@ class UIKeyGenerator(QMainWindow):
 
     def onClickGenerateKey(self):
         id =        self.ui.textEditDeviceId.toPlainText()
-        dateFrom  = self.ui.dateTimeEdit.dateTime().toPyDateTime()
+        selectedDate  = self.ui.dateTimeEdit.dateTime().toPyDateTime()
         email =  self.ui.textEditMail.toPlainText()
-        
 
-        if id != "" and email !="" :
-            keyEngineGenerator = KeyEngine(id , TimeConversor.getTimeStamp(dateFrom))
-            key =  keyEngineGenerator.create()
-            self.ui.plainTextKey.insertPlainText(key)
+        timeStamp = TimeConversor.getTimeStamp(selectedDate)
+        print(str(timeStamp))
+
+        if id != "" and email !="":
+            if timeStamp > 0.0:
+                keyEngineGenerator = KeyEngine(id , timeStamp)
+                key =  keyEngineGenerator.create()
+                self.ui.plainTextKey.clear()
+                self.ui.plainTextKey.insertPlainText(key)
+                self.ui.plainTextKey.setReadOnly(True)
+            else:
+                self.errorDialogWrongDates()    
         else:
             self.errorDialogEmptyFields()
 
@@ -57,13 +64,17 @@ class UIKeyGenerator(QMainWindow):
         newKey = self.ui.plainTextKey.toPlainText()
         mail = Mail()
         mail.sendMail(mailer, newKey)
-        self.ui.sendKeyButton.setText="Finish"
-        self.ui.sendKeyButton.clicked.connect(self.close())
-    
+      
+      
     def errorDialogEmptyFields(self):
-        dlg = CustomDialog()
+        print("Empty fields not allowed")
+        dlg = CustomDialog("Empty fields not allowed")
         dlg.exec()
-
+    
+    def errorDialogWrongDates(self):
+        print("Wrong dates selected")
+        dlg = CustomDialog("Wrong dates selected")
+        dlg.exec()
 
 
 
