@@ -67,12 +67,10 @@ class UIKeyGenerator(QMainWindow):
       
       
     def errorDialogEmptyFields(self):
-        print("Empty fields not allowed")
         dlg = CustomDialog("Empty fields not allowed")
         dlg.exec()
     
     def errorDialogWrongDates(self):
-        print("Wrong dates selected")
         dlg = CustomDialog("Wrong dates selected")
         dlg.exec()
 
